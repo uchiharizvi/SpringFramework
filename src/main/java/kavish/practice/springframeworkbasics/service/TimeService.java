@@ -1,5 +1,6 @@
 package kavish.practice.springframeworkbasics.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
@@ -15,9 +16,8 @@ public class TimeService {
     @Value("#{new Boolean(environment['spring.profiles.active']!='dev')}")//Spring Spel -- Runtime execute the argument and store the result in is24 variable
     private boolean is24; //Final??
 
-    public TimeService(boolean is24) {
+    public TimeService() {
         super();
-        /*this.is24 = is24;*/ //Not required in case of when no constructor call
     }
 
     public String getCurrentTime(){

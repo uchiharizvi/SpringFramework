@@ -1,9 +1,10 @@
 package kavish.practice.springframeworkbasics;
 
-import kavish.practice.springframeworkbasics.config.ApplicationConfigWithComponentScan;
+import kavish.practice.springframeworkbasics.config.ApplicationConfig;
 import kavish.practice.springframeworkbasics.service.OutputService;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
 public class SpringFrameworkApplication {
@@ -16,7 +17,7 @@ public class SpringFrameworkApplication {
         OutputService outputService = new OutputService(greetingService, timeService);*/
 
         /***IOC Container***/
-        AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(ApplicationConfigWithComponentScan.class);// Constructor describes what type of Config metadata you require
+        AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(ApplicationConfig.class);// Constructor describes what type of Config metadata you require
         OutputService outputService = applicationContext.getBean(OutputService.class);
 
         for(int i=0;i<5;i++){
